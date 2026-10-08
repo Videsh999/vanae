@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { VanaeLogo } from '../common/VanaeLogo';
 import { FullscreenMenu } from './FullscreenMenu';
-import { ArrowRight, Menu } from 'lucide-react';
+import { Menu, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenEnquire: () => void;
@@ -15,7 +14,7 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -30,9 +29,9 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
   };
 
   const navLinks = [
-    { label: 'Overview', target: 'overview' },
     { label: 'Architecture', target: 'architecture' },
     { label: 'Residences', target: 'residences' },
+    { label: 'Experience', target: 'experience' },
     { label: 'Amenities', target: 'amenities' },
     { label: 'Location', target: 'location' },
   ];
@@ -40,57 +39,53 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-out ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
           isScrolled
-            ? 'py-4 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#141C18]/8 text-[#141C18] shadow-xs'
-            : 'py-7 bg-gradient-to-b from-black/50 via-black/20 to-transparent text-[#FAF8F5]'
-        }`}
+            ? 'py-4 bg-white/95 backdrop-blur-md border-b border-[#141414]/6 shadow-xs'
+            : 'py-6 bg-white/80 backdrop-blur-xs border-b border-black/3'
+        } text-[#141414]`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">
-          {/* Left: Brand Logo */}
+          {/* Left: Brand Wordmark */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 focus:outline-hidden"
+            className="flex items-center gap-3 focus:outline-hidden group"
             aria-label="Vanae Home"
           >
-            <VanaeLogo size={isScrolled ? 'sm' : 'md'} variant="full" />
+            <span className="font-serif text-2xl tracking-[0.24em] font-light text-[#141414] uppercase group-hover:text-[#8A7D6B] transition-colors">
+              VANAE
+            </span>
+            <span className="hidden sm:inline-block w-px h-3.5 bg-[#141414]/15" />
+            <span className="hidden sm:inline-block text-[10px] font-mono tracking-[0.2em] text-[#8A7D6B] uppercase">
+              HYDERABAD
+            </span>
           </button>
 
-          {/* Center: Quiet Architectural Navigation */}
-          <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-[0.25em] font-sans font-light">
+          {/* Center: Minimal Editorial Navigation */}
+          <nav className="hidden md:flex items-center gap-9 text-[11px] uppercase tracking-[0.22em] font-mono font-normal">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.target)}
-                className={`transition-colors relative py-1 focus:outline-hidden ${
-                  isScrolled
-                    ? 'text-[#141C18]/80 hover:text-[#141C18]'
-                    : 'text-[#FAF8F5]/80 hover:text-white'
-                }`}
+                className="text-[#141414]/75 hover:text-[#141414] transition-colors relative py-1 focus:outline-hidden"
               >
                 <span>{link.label}</span>
               </button>
             ))}
           </nav>
 
-          {/* Right: Enquire & Menu */}
+          {/* Right: Enquire & Menu Trigger */}
           <div className="flex items-center gap-6 sm:gap-8">
             <button
               onClick={onOpenEnquire}
-              className={`text-[10.5px] uppercase tracking-[0.25em] font-medium pb-0.5 border-b transition-all focus:outline-hidden ${
-                isScrolled
-                  ? 'text-[#141C18] border-[#141C18]/40 hover:border-[#141C18]'
-                  : 'text-[#FAF8F5] border-[#FAF8F5]/50 hover:border-white'
-              }`}
+              className="text-[11px] uppercase tracking-[0.22em] font-mono font-medium pb-0.5 border-b border-[#141414]/40 hover:border-[#141414] text-[#141414] transition-all focus:outline-hidden"
             >
               Enquire
             </button>
 
             <button
               onClick={() => setMenuOpen(true)}
-              className={`flex items-center gap-2 text-[10.5px] uppercase tracking-[0.25em] transition-colors focus:outline-hidden ${
-                isScrolled ? 'text-[#141C18]' : 'text-[#FAF8F5]'
-              }`}
+              className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-mono text-[#141414] hover:text-[#8A7D6B] transition-colors focus:outline-hidden"
               aria-label="Open Navigation Menu"
             >
               <Menu className="w-4 h-4" />
@@ -100,7 +95,7 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
         </div>
       </header>
 
-      {/* Fullscreen Architectural Menu Drawer */}
+      {/* Fullscreen Editorial Menu Drawer */}
       <FullscreenMenu
         isOpen={menuOpen}
         onClose={() => setMenuOpen(false)}

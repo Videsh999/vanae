@@ -13,6 +13,10 @@ export function SpecificationsSection() {
       details: 'R.C.C. Framed Structure & Monolithic Shear Wall construction engineered to withstand wind and seismic loads as per IS codes.',
     },
     {
+      title: 'FINISHES',
+      details: 'Internal smooth gypsum plaster finish with premium acrylic emulsion paint. External weatherproof texture finish with high-grade exterior emulsion.',
+    },
+    {
       title: 'FLOORING',
       details: 'Large format premium vitrified tile flooring in living, dining, and bedrooms; laminated wooden flooring in master suite; non-slip vitrified tiles in utility and balconies.',
     },
@@ -21,52 +25,52 @@ export function SpecificationsSection() {
       details: 'Factory-made teak-veneered main door with melamine polish. UPVC profile window sections with tinted toughened glass and mosquito mesh provision.',
     },
     {
+      title: 'KITCHENS & BATHROOMS',
+      details: 'Provision for modular kitchen with water purifier point. Bathrooms fitted with premium sanitaryware (Kohler / Grohe or equivalent), concealed flush tanks, and thermostatic diverters.',
+    },
+    {
       title: 'ELECTRICAL',
-      details: 'Concealed copper wiring with MCB distribution boards and modular switches. 3-phase supply. Provision for air conditioning copper piping in all bedrooms and living areas.',
+      details: 'Concealed copper wiring with MCB distribution boards and modular switches. 3-phase supply with individual dual-source smart meters. AC copper piping provision throughout.',
     },
     {
-      title: 'LIFTS & BACKUP',
-      details: 'High-speed passenger lifts and dedicated service elevators in each tower with granite cladding. 100% DG set power backup with acoustic enclosure.',
+      title: 'LIFTS & POWER BACKUP',
+      details: 'High-speed passenger elevators and dedicated service stretcher elevators per tower with granite/marble jambs. 100% DG set power backup with acoustic enclosures.',
     },
     {
-      title: 'WATER & SANITARY',
-      details: 'Domestic water supplied through central Water Softening Plant (WSP) with individual smart unit meters. On-campus Sewage Treatment Plant (STP) and rainwater harvesting recharge pits.',
+      title: 'WATER & SUSTAINABILITY',
+      details: 'Treated domestic water supplied through central Water Softening Plant (WSP). Dedicated Sewage Treatment Plant (STP) for landscape irrigation and rainwater harvesting pits.',
     },
     {
-      title: 'SECURITY',
-      details: 'Round-the-clock CCTV surveillance at main security cabin and block lobbies; solar fencing along perimeter; intercom and panic button in lifts.',
-    },
-    {
-      title: 'FIRE SAFETY',
-      details: 'Comprehensive fire hydrant and sprinkler system on all floors and parking areas as per National Building Code (NBC) norms with central control panel.',
+      title: 'SECURITY & FIRE SAFETY',
+      details: 'Round-the-clock CCTV surveillance at main security gate and tower lobbies; solar fencing along perimeter; fire hydrant and sprinkler system on all residential and stilt levels as per NBC.',
     },
     {
       title: 'PARKING',
-      details: 'Five levels of naturally ventilated above-ground open stilt parking, EV charging ready bays, and wide entry and exit ramps.',
+      details: 'Five levels of naturally ventilated above-ground open stilt parking, EV charging ready infrastructure, and wide circular entry/exit ramps.',
     },
   ];
 
   return (
     <section
       id="specifications"
-      className="relative w-full py-36 sm:py-48 bg-[#FAF8F5] text-[#141C18] overflow-hidden border-t border-[#141C18]/5"
+      className="relative w-full py-32 sm:py-44 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/6"
     >
       <div className="max-w-4xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
         {/* Section Header */}
-        <div className="space-y-3 pb-6 border-b border-[#141C18]/10">
+        <div className="space-y-3 pb-6 border-b border-[#141414]/8">
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8A7D6B]">
-            TECHNICAL BLUEPRINT
+            09 — TECHNICAL BLUEPRINT
           </span>
-          <h2 className="font-serif text-4xl sm:text-6xl font-light text-[#141C18]">
+          <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-[#141414] leading-[1.1]">
             Specifications.
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed max-w-xl">
-            Built strictly to Indian Standard (IS) and NBC codes with monolithic R.C.C. shear wall discipline.
+            Built strictly to Indian Standard (IS) and National Building Code (NBC) norms with monolithic R.C.C. shear wall discipline.
           </p>
         </div>
 
-        {/* Elegant Minimal Accordion */}
-        <div className="divide-y divide-[#141C18]/10">
+        {/* Elegant Minimal Accordion on Pure White Canvas with Thin Borders */}
+        <div className="divide-y divide-[#141414]/8">
           {categories.map((cat, idx) => {
             const isOpen = openIdx === idx;
             return (
@@ -79,12 +83,12 @@ export function SpecificationsSection() {
                     <span className="text-xs font-mono text-[#8A7D6B] tracking-widest">
                       {(idx + 1).toString().padStart(2, '0')}
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl font-light text-[#141C18] group-hover:text-[#8A7D6B] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl font-light text-[#141414] group-hover:text-[#8A7D6B] transition-colors">
                       {cat.title}
                     </h3>
                   </div>
 
-                  <div className="text-[#141C18]/50 group-hover:text-[#141C18] transition-colors">
+                  <div className="text-[#141414]/40 group-hover:text-[#141414] transition-colors">
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </button>
@@ -95,7 +99,7 @@ export function SpecificationsSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
                       <p className="pt-4 pl-12 sm:pl-16 font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">

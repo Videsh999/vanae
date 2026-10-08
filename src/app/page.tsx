@@ -4,17 +4,12 @@ import React, { useState } from 'react';
 import { SmoothScroll } from '@/components/common/SmoothScroll';
 import { Navbar } from '@/components/navigation/Navbar';
 import { HeroSection } from '@/components/hero/HeroSection';
-import { StorySection } from '@/components/story/StorySection';
 import { RootedLivingSection } from '@/components/rooted/RootedLivingSection';
 import { ArchitectureSection } from '@/components/architecture/ArchitectureSection';
-import { ArchitectureVisualSection } from '@/components/architecture/ArchitectureVisualSection';
-import { ElevateSection } from '@/components/architecture/ElevateSection';
 import { ResidencesSection } from '@/components/residences/ResidencesSection';
-import { FloorPlanViewer } from '@/components/residences/FloorPlanViewer';
-import { MasterPlanSection } from '@/components/masterplan/MasterPlanSection';
+import { ElevateSection } from '@/components/architecture/ElevateSection';
 import { AmenitiesSection } from '@/components/amenities/AmenitiesSection';
-import { ClubhouseSection } from '@/components/clubhouse/ClubhouseSection';
-import { NatureSection } from '@/components/nature/NatureSection';
+import { MasterPlanSection } from '@/components/masterplan/MasterPlanSection';
 import { LocationSection } from '@/components/location/LocationSection';
 import { SpecificationsSection } from '@/components/specifications/SpecificationsSection';
 import { GallerySection } from '@/components/gallery/GallerySection';
@@ -25,7 +20,6 @@ import { EnquiryModal } from '@/components/enquiry/EnquiryModal';
 export default function Home() {
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
   const [selectedPlanForEnquiry, setSelectedPlanForEnquiry] = useState<string | undefined>(undefined);
-  const [selectedResidenceConfig, setSelectedResidenceConfig] = useState<'3-bhk' | '4-bhk'>('3-bhk');
 
   const handleOpenEnquire = (planTitle?: string) => {
     setSelectedPlanForEnquiry(planTitle);
@@ -39,74 +33,51 @@ export default function Home() {
     }
   };
 
-  const handleSelectResidenceConfig = (config: '3-bhk' | '4-bhk') => {
-    setSelectedResidenceConfig(config);
-    handleScrollToSection('floorplans');
-  };
-
   return (
     <SmoothScroll>
-      {/* Quiet Architectural Header */}
+      {/* Editorial Header */}
       <Navbar onOpenEnquire={() => handleOpenEnquire()} />
 
-      {/* Main Architectural Presentation */}
-      <main className="relative flex flex-col w-full bg-[#FAF8F5] text-[#141C18]">
-        {/* HERO: Fullscreen Architectural Dominance, Minimal Typography */}
-        <HeroSection onExplore={() => handleScrollToSection('story')} />
+      {/* 12 Deliberate Cinematic Sections on Pure White / Light Canvas */}
+      <main className="relative flex flex-col w-full bg-white text-[#141414]">
+        {/* 01 — HERO: Daytime Architectural Shot, Subtle Camera Push (1.00 → 1.05) */}
+        <HeroSection onExplore={() => handleScrollToSection('rooted')} />
 
-        {/* SECTION 01: THE IDEA (Whitespace & 25-Word Philosophy) */}
-        <StorySection />
-
-        {/* SECTION 02: ROOTED IN NATURE (Large Editorial Photographic Spread) */}
+        {/* 02 — THE ART OF ROOTED LIVING: Large Editorial Composition */}
         <RootedLivingSection />
 
-        {/* SECTION 03: THE SKYLINE (Wide Render + Typographic Statistics in Whitespace) */}
+        {/* 03 — ARCHITECTURE: Designed to rise. Designed to belong. */}
         <ArchitectureSection />
 
-        {/* SECTION 04: ARCHITECTURE (3 Perspectives: Form, Light, Landscape) */}
-        <ArchitectureVisualSection />
+        {/* 04 — RESIDENCES: Space to Live Beautifully & Drafting Floor Plans */}
+        <ResidencesSection onOpenEnquire={(plan) => handleOpenEnquire(plan)} />
 
-        {/* SECTION 05: THE WAY WE ELEVATE (Building Cross-Section Diagram) */}
+        {/* 05 — THE EXPERIENCE: The Way We Elevate (Building Cross-Section) */}
         <ElevateSection />
 
-        {/* SECTION 06: RESIDENCES (Space to Live Beautifully & 3/4 BHK Selector) */}
-        <ResidencesSection onSelectConfig={handleSelectResidenceConfig} />
-
-        {/* SECTION 07: FLOOR PLANS (Architectural Drafting Drawing Canvas) */}
-        <FloorPlanViewer
-          onOpenEnquire={(plan) => handleOpenEnquire(plan)}
-          selectedConfig={selectedResidenceConfig}
-        />
-
-        {/* SECTION 08: MASTER PLAN (Large Site Drawing Breathes Naturally) */}
-        <MasterPlanSection onSelectTower={() => handleScrollToSection('floorplans')} />
-
-        {/* SECTION 09: AMENITIES (5 Experiential Lifestyle Chapters, No 50 Cards) */}
+        {/* 06 — AMENITIES: 6 Experiential Chapters & 1,00,000 Sft Clubhouse */}
         <AmenitiesSection />
 
-        {/* SECTION 10: CLUBHOUSE (1,00,000 Sft Architectural Realm) */}
-        <ClubhouseSection />
+        {/* 07 — MASTER PLAN: Architectural Site Drawing Given Ample Space */}
+        <MasterPlanSection onSelectTower={() => handleScrollToSection('residences')} />
 
-        {/* SECTION 11: LIFESTYLE (How Life Feels: Daily Cadence) */}
-        <NatureSection />
-
-        {/* SECTION 12: LOCATION (Kollur · ORR Exit 2 · Hyderabad) */}
+        {/* 08 — LOCATION: Kollur · ORR Exit 2 · Hyderabad */}
         <LocationSection />
 
-        {/* SECTION 13: SPECIFICATIONS (Minimalist Accordion) */}
+        {/* 09 — SPECIFICATIONS: Minimal Accordion on Pure White */}
         <SpecificationsSection />
 
-        {/* SECTION 14: GALLERY (Visual Anthology) */}
+        {/* 10 — GALLERY: Architectural Photography Exhibition & Lightbox */}
         <GallerySection />
 
-        {/* SECTION 15: FINAL ENQUIRY (Subtle Private Viewing CTA) */}
+        {/* 11 — PRIVATE VIEWING: Daytime Editorial Consultation Form */}
         <EnquirySection onOpenEnquire={() => handleOpenEnquire()} />
       </main>
 
-      {/* Simple Architectural Colophon & Legal Disclosures */}
+      {/* 12 — FOOTER: Architectural Colophon & Disclosures */}
       <FooterSection />
 
-      {/* Minimal Elegant Private Consultation Modal */}
+      {/* Private Consultation Modal for Quick Enquire Triggers */}
       <EnquiryModal
         isOpen={isEnquiryModalOpen}
         onClose={() => setIsEnquiryModalOpen(false)}
