@@ -20,10 +20,10 @@ export function LifestyleSection() {
       aspect: 'aspect-4/3',
     },
     {
-      title: 'Sunrise Sky Wellness',
-      category: '03 / MIND & MOVEMENT',
-      desc: 'Dedicated sunrise yoga lawns and reflexology pathways embraced by mature landscaping away from vehicular paths.',
-      image: '/assets/nature-calm-clouds.jpg',
+      title: 'Ayurvedic Wellness & Spa',
+      category: '03 / RESTORATION & CALM',
+      desc: 'Holistic therapy suites, temperature-controlled sauna, and quiet wellness lounges designed for deep daily rejuvenation.',
+      image: '/assets/clubhouse/wellness-spa.jpg',
       aspect: 'aspect-4/3',
     },
   ];

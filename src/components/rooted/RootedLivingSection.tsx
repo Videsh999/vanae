@@ -53,7 +53,7 @@ export function RootedLivingSection() {
 
         {/* Architectural Metrics Ledger Strip */}
         <div className="pt-8 border-t border-[#141414]/8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
             {metrics.map((m, idx) => (
               <motion.div
                 key={m.label}
@@ -61,7 +61,9 @@ export function RootedLivingSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="space-y-1.5 text-center sm:text-left border-l-0 sm:border-l border-[#141414]/10 sm:pl-6 first:pl-0 first:border-l-0"
+                className={`space-y-1.5 text-left border-l-0 lg:border-l border-[#141414]/10 lg:pl-6 first:pl-0 first:border-l-0 ${
+                  idx === 4 ? 'col-span-2 lg:col-span-1' : ''
+                }`}
               >
                 <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#141414] tracking-tight">
                   {m.value}

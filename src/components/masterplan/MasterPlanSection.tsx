@@ -62,7 +62,7 @@ export function MasterPlanSection({ onSelectTower }: MasterPlanSectionProps) {
         </div>
 
         {/* Tower Selector Bar */}
-        <div className="flex items-center justify-between pb-2 border-b border-[#141414]/8 overflow-x-auto">
+        <div className="flex items-center justify-between pb-2 border-b border-[#141414]/8 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-6 sm:gap-8">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] whitespace-nowrap">
               SELECT TOWER:

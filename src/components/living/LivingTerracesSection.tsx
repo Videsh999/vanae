@@ -48,6 +48,28 @@ export function LivingTerracesSection() {
             BIOPHILIC LIVING TERRACES · 11-FOOT CLEAR VOLUMES
           </div>
         </motion.div>
+
+        {/* Terraced Architecture Specifications Strip */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+          {[
+            { label: 'HORIZON SWEEP', value: '270°', desc: 'Uninterrupted panorama across the Kollur greenery' },
+            { label: 'VERTICAL CLEARANCE', value: '11 FT', desc: 'Extended floor-to-ceiling volumes in every residence' },
+            { label: 'MICROCLIMATE', value: 'PASSIVE AIR', desc: 'Engineered orientation channeling Deccan breezes' },
+            { label: 'BOTANICAL SHADING', value: 'FACADE FINS', desc: 'Sculpted organic ribs sheltering each terrace' },
+          ].map((item) => (
+            <div key={item.label} className="p-5 rounded-xs bg-white border border-[#141414]/8 space-y-1">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-[#8C7A65]">
+                {item.label}
+              </span>
+              <div className="font-serif text-xl sm:text-2xl text-[#141414] font-light">
+                {item.value}
+              </div>
+              <p className="text-[11px] font-sans text-[#4A544F] font-light leading-snug">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -125,7 +125,7 @@ export function AmenitiesSection() {
         {/* Categorized 50+ Amenities Ledger */}
         <div className="space-y-8 pt-8 border-t border-[#141414]/8">
           {/* Category Tabs */}
-          <div className="flex items-center gap-6 sm:gap-10 border-b border-[#141414]/8 pb-3 overflow-x-auto">
+          <div className="flex items-center gap-6 sm:gap-10 border-b border-[#141414]/8 pb-3 overflow-x-auto no-scrollbar">
             {categories.map((cat, idx) => (
               <button
                 key={cat.name}

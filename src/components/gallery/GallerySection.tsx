@@ -1,11 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export function GallerySection() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIdx === null) return;
+      if (e.key === 'Escape') setSelectedIdx(null);
+      if (e.key === 'ArrowLeft') setSelectedIdx((prev) => (prev! - 1 + exhibits.length) % exhibits.length);
+      if (e.key === 'ArrowRight') setSelectedIdx((prev) => (prev! + 1) % exhibits.length);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIdx]);
 
   const exhibits = [
     {

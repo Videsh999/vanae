@@ -12,12 +12,29 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [activeSection, setActiveSection] = useState<string>('');
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
+
+      // Section spy
+      const sections = ['architecture', 'residences', 'terraces', 'lifestyle', 'amenities', 'location'];
+      const scrollPos = window.scrollY + 200;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      if (window.scrollY < 300) {
+        setActiveSection('');
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -63,16 +80,24 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
           </button>
 
           {/* Center: Minimal Editorial Navigation */}
-          <nav className="hidden md:flex items-center gap-9 text-[11px] uppercase tracking-[0.22em] font-mono font-normal">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => scrollToSection(link.target)}
-                className="text-[#141414]/75 hover:text-[#141414] transition-colors relative py-1 focus:outline-hidden"
-              >
-                <span>{link.label}</span>
-              </button>
-            ))}
+          <nav className="hidden lg:flex items-center gap-9 text-[11px] uppercase tracking-[0.22em] font-mono font-normal">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.target;
+              return (
+                <button
+                  key={link.label}
+                  onClick={() => scrollToSection(link.target)}
+                  className={`relative py-1 transition-colors focus:outline-hidden cursor-pointer ${
+                    isActive ? 'text-[#141414] font-medium' : 'text-[#141414]/65 hover:text-[#141414]'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-[#8C7A65] transition-all duration-300" />
+                  )}
+                </button>
+              );
+            })}
           </nav>
 
           {/* Right: Enquire & Menu Trigger */}

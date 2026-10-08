@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export function ArchitectureSection() {
+  const [activePrinciple, setActivePrinciple] = useState<number>(0);
   const principles = [
     {
       number: '01',
@@ -79,22 +80,34 @@ export function ArchitectureSection() {
               </h3>
             </div>
 
-            <div className="space-y-8 divide-y divide-[#141414]/8">
-              {principles.map((p) => (
-                <div key={p.number} className="pt-6 first:pt-0 space-y-2">
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs font-mono text-[#8C7A65] tracking-widest">
-                      {p.number}
-                    </span>
-                    <h4 className="font-serif text-lg sm:text-xl font-light text-[#141414]">
-                      {p.title}
-                    </h4>
+            <div className="space-y-4">
+              {principles.map((p, idx) => {
+                const isActive = activePrinciple === idx;
+                return (
+                  <div
+                    key={p.number}
+                    onClick={() => setActivePrinciple(idx)}
+                    onMouseEnter={() => setActivePrinciple(idx)}
+                    className={`p-5 rounded-xs transition-all duration-300 cursor-pointer border ${
+                      isActive
+                        ? 'bg-white border-[#141414]/15 shadow-xs translate-x-1'
+                        : 'bg-transparent border-transparent hover:border-[#141414]/8'
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className={`text-xs font-mono tracking-widest ${isActive ? 'text-[#141414] font-medium' : 'text-[#8C7A65]'}`}>
+                        {p.number}
+                      </span>
+                      <h4 className="font-serif text-lg sm:text-xl font-light text-[#141414]">
+                        {p.title}
+                      </h4>
+                    </div>
+                    <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed pl-8 pt-1">
+                      {p.desc}
+                    </p>
                   </div>
-                  <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed pl-8">
-                    {p.desc}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Architectural Rationale Callout */}

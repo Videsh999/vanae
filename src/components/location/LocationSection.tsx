@@ -65,7 +65,7 @@ export function LocationSection() {
             <div className="space-y-4 divide-y divide-[#141414]/8">
               {hubs.map((hub) => (
                 <div key={hub.name} className="pt-4 first:pt-0 flex items-start gap-4">
-                  <span className="font-mono text-xs text-[#8C7A65] font-semibold tracking-wider whitespace-nowrap pt-0.5 min-w-[70px]">
+                  <span className="font-mono text-[10px] text-[#141414] font-medium tracking-wider px-2.5 py-1 rounded-xs bg-white border border-[#141414]/10 whitespace-nowrap shrink-0 shadow-2xs">
                     {hub.time}
                   </span>
                   <div className="space-y-0.5">

@@ -92,7 +92,7 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
 
         {/* SUB-CHAPTER 1: The Architectural Elevation Stratification */}
         <div className="space-y-10">
-          <div className="flex items-center justify-between pb-3 border-b border-[#141414]/8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-3 border-b border-[#141414]/8">
             <span className="text-[10px] font-mono uppercase tracking-[0.26em] text-[#8C7A65]">
               STRATIFIED CROSS-SECTION
             </span>
@@ -153,14 +153,14 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
             </div>
 
             {/* Block Navigation Tabs */}
-            <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+            <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto no-scrollbar pb-1 max-w-full">
               {blockTabs.map((tab) => {
                 const isSelected = activeBlock === tab.key;
                 return (
                   <button
                     key={tab.key}
                     onClick={() => handleBlockChange(tab)}
-                    className="group flex flex-col items-start gap-1 pb-1 focus:outline-hidden cursor-pointer"
+                    className="group flex flex-col items-start gap-1 pb-1 focus:outline-hidden cursor-pointer whitespace-nowrap shrink-0"
                   >
                     <span
                       className={`text-xs font-mono uppercase tracking-widest transition-colors ${
@@ -196,7 +196,7 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setZoomLevel((z) => Math.min(z + 0.25, 2))}
-                    className="p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden"
+                    className="p-2 sm:p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden cursor-pointer"
                     title="Zoom in"
                     aria-label="Zoom in floor plan"
                   >
@@ -204,7 +204,7 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
                   </button>
                   <button
                     onClick={() => setZoomLevel((z) => Math.max(z - 0.25, 0.75))}
-                    className="p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden"
+                    className="p-2 sm:p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden cursor-pointer"
                     title="Zoom out"
                     aria-label="Zoom out floor plan"
                   >
@@ -212,7 +212,7 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
                   </button>
                   <button
                     onClick={() => setZoomLevel(1)}
-                    className="p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden"
+                    className="p-2 sm:p-1.5 rounded-xs border border-[#141414]/10 bg-white text-[#141414] hover:bg-[#FAF9F6] focus:outline-hidden cursor-pointer"
                     title="Reset scale"
                     aria-label="Reset floor plan scale"
                   >
@@ -239,8 +239,8 @@ export function ResidencesSection({ onOpenEnquire }: ResidencesSectionProps) {
 
               {/* Sub-Plan Switcher Chips if multiple facings exist */}
               {availablePlans.length > 1 && (
-                <div className="flex items-center gap-3 pt-2 overflow-x-auto">
-                  <span className="text-[10px] font-mono uppercase text-[#8C7A65]">
+                <div className="flex items-center gap-3 pt-2 overflow-x-auto no-scrollbar">
+                  <span className="text-[10px] font-mono uppercase text-[#8C7A65] whitespace-nowrap">
                     SELECT VARIANT:
                   </span>
                   {availablePlans.map((plan) => (

@@ -53,23 +53,27 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
         <div className="flex-1" />
 
         {/* Restrained Editorial Typography Block */}
-        <div className="max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-lg space-y-3 sm:space-y-4 my-auto">
+        <div className="max-w-[280px] sm:max-w-md md:max-w-lg lg:max-w-xl space-y-3 sm:space-y-4 my-auto">
           {/* Primary Architectural Brand Mark */}
-          <h1 className="hero-reveal-title font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[0.2em] sm:tracking-[0.24em] text-[#141414] uppercase leading-none">
-            VANAE
-          </h1>
+          <div className="overflow-hidden">
+            <h1 className="hero-reveal-title font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.24em] text-[#141414] uppercase leading-none">
+              VANAE
+            </h1>
+          </div>
 
           {/* Philosophical Subtitle */}
-          <p className="hero-reveal-sub font-serif italic text-base sm:text-lg md:text-xl lg:text-2xl text-[#2C2824] font-light tracking-wide leading-snug">
-            The Art of Rooted Living
-          </p>
+          <div className="overflow-hidden">
+            <p className="hero-reveal-sub font-serif italic text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#2C2824] font-light tracking-wide leading-snug">
+              The Art of Rooted Living
+            </p>
+          </div>
 
           {/* Location & Descriptor */}
           <div className="hero-reveal-location pt-1">
-            <span className="sm:hidden text-[8px] font-mono uppercase tracking-[0.18em] text-[#8C7A65] font-medium leading-relaxed block">
+            <span className="sm:hidden text-[8.5px] font-mono uppercase tracking-[0.2em] text-[#8C7A65] font-medium leading-relaxed block">
               KOLLUR · ORR EXIT 2 <br />HYDERABAD
             </span>
-            <span className="hidden sm:block text-[9.5px] md:text-[10px] lg:text-[11px] font-mono uppercase tracking-[0.3em] text-[#8C7A65] font-medium">
+            <span className="hidden sm:block text-[10px] md:text-[10.5px] lg:text-[11.5px] font-mono uppercase tracking-[0.32em] text-[#8C7A65] font-medium">
               KOLLUR · ORR EXIT 2 · HYDERABAD
             </span>
           </div>

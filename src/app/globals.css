@@ -110,6 +110,15 @@
   background: rgba(20, 20, 20, 0.3);
 }
 
+/* Hide scrollbar for clean horizontal tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Cinematic Camera Approach (Scale 1.00 -> 1.05 with subtle drift, finish naturally) */
 @keyframes cinematicCameraPush {
   0% {

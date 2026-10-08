@@ -43,7 +43,7 @@ export function EnquiryModal({ isOpen, onClose, defaultPlan }: EnquiryModalProps
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-white/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
         >
           <div className="relative w-full max-w-lg bg-white text-[#141414] rounded-xs p-8 sm:p-12 shadow-2xl border border-[#141414]/10">
             {/* Close Button */}
