@@ -19,8 +19,8 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
       setIsScrolled(window.scrollY > 30);
 
       // Section spy
-      const sections = ['architecture', 'residences', 'terraces', 'lifestyle', 'amenities', 'location'];
-      const scrollPos = window.scrollY + 200;
+      const sections = ['architecture', 'residences', 'lifestyle', 'location', 'enquiry'];
+      const scrollPos = window.scrollY + 180;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPos) {
@@ -41,17 +41,22 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth',
+      });
     }
   };
 
   const navLinks = [
     { label: 'Architecture', target: 'architecture' },
     { label: 'Residences', target: 'residences' },
-    { label: 'Terraces', target: 'terraces' },
-    { label: 'Lifestyle', target: 'lifestyle' },
-    { label: 'Amenities', target: 'amenities' },
-    { label: 'Location', target: 'location' },
+    { label: 'Club & Terraces', target: 'lifestyle' },
+    { label: 'Site & Location', target: 'location' },
+    { label: 'Consultation', target: 'enquiry' },
   ];
 
   return (

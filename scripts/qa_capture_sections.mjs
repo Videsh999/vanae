@@ -44,6 +44,10 @@ async function main() {
   await send('Runtime.enable');
   await send('DOM.enable');
 
+  // Reload to ensure freshest bundle
+  await send('Page.reload');
+  await new Promise((r) => setTimeout(r, 2000));
+
   const outputDir = join(process.cwd(), 'public', 'qa_captures');
   mkdirSync(outputDir, { recursive: true });
 
@@ -76,39 +80,36 @@ async function main() {
     console.log(`Saved screenshot: ${filename} (${buffer.length} bytes)`);
   }
 
-  // 1. First test Desktop 1440x900
+  const sections = [
+    { name: '01_hero', selector: '#overview' },
+    { name: '02_vision', selector: '#rooted' },
+    { name: '03_architecture', selector: '#architecture' },
+    { name: '04_residences', selector: '#residences' },
+    { name: '05_lifestyle', selector: '#lifestyle' },
+    { name: '06_location', selector: '#location' },
+    { name: '07_enquiry', selector: '#enquiry' },
+    { name: '08_footer', selector: 'footer' },
+  ];
+
+  // 1. Desktop 1440x900
   console.log('--- Capturing 1440px Desktop Viewports ---');
   await setViewport(1440, 900);
   await new Promise((r) => setTimeout(r, 1000));
-
-  const sections = [
-    { name: '01_hero', selector: '#overview' },
-    { name: '02_rooted', selector: '#rooted' },
-    { name: '03_architecture', selector: '#architecture' },
-    { name: '04_residences', selector: '#residences' },
-    { name: '05_terraces', selector: '#terraces' },
-    { name: '06_lifestyle', selector: '#lifestyle' },
-    { name: '07_amenities', selector: '#amenities' },
-    { name: '08_masterplan', selector: '#masterplan' },
-    { name: '09_location', selector: '#location' },
-    { name: '10_specifications', selector: '#specifications' },
-    { name: '11_gallery', selector: '#gallery' },
-    { name: '12_private_viewing', selector: '#private-viewing' },
-    { name: '13_footer', selector: 'footer' },
-  ];
 
   for (const s of sections) {
     await evaluate(`(() => {
       const el = document.querySelector('${s.selector}');
       if (el) {
-        el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        const navHeight = 80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
       }
     })()`);
-    await new Promise((r) => setTimeout(r, 1200));
+    await new Promise((r) => setTimeout(r, 800));
     await capture(`1440_${s.name}.png`);
   }
 
-  // 2. Test Mobile 390x844
+  // 2. Mobile 390x844
   console.log('--- Capturing 390px Mobile Viewports ---');
   await setViewport(390, 844);
   await new Promise((r) => setTimeout(r, 1000));
@@ -117,53 +118,35 @@ async function main() {
     await evaluate(`(() => {
       const el = document.querySelector('${s.selector}');
       if (el) {
-        el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        const navHeight = 80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
       }
     })()`);
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 800));
     await capture(`390_${s.name}.png`);
   }
 
-  // 3. Test Tablet 768x1024
+  // 3. Tablet 768x1024
   console.log('--- Capturing 768px Tablet Viewports ---');
   await setViewport(768, 1024);
   await new Promise((r) => setTimeout(r, 1000));
 
-  await evaluate(`(() => {
-    const el = document.querySelector('#overview');
-    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
-  })()`);
-  await new Promise((r) => setTimeout(r, 800));
-  await capture(`768_hero.png`);
-
-  await evaluate(`(() => {
-    const el = document.querySelector('#residences');
-    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
-  })()`);
-  await new Promise((r) => setTimeout(r, 800));
-  await capture(`768_residences.png`);
-
-  // 4. Test Ultrawide 1920x1080
-  console.log('--- Capturing 1920px Ultrawide Viewports ---');
-  await setViewport(1920, 1080);
-  await new Promise((r) => setTimeout(r, 1000));
-
-  await evaluate(`(() => {
-    const el = document.querySelector('#overview');
-    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
-  })()`);
-  await new Promise((r) => setTimeout(r, 800));
-  await capture(`1920_hero.png`);
-
-  await evaluate(`(() => {
-    const el = document.querySelector('#architecture');
-    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
-  })()`);
-  await new Promise((r) => setTimeout(r, 800));
-  await capture(`1920_architecture.png`);
+  for (const s of [sections[0], sections[2], sections[3], sections[5]]) {
+    await evaluate(`(() => {
+      const el = document.querySelector('${s.selector}');
+      if (el) {
+        const navHeight = 80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+      }
+    })()`);
+    await new Promise((r) => setTimeout(r, 800));
+    await capture(`768_${s.name}.png`);
+  }
 
   ws.close();
-  console.log('Visual QA Captures Completed Successfully!');
+  console.log('Refined Visual QA Captures Completed!');
 }
 
 main().catch((err) => {

@@ -6,20 +6,21 @@ import { motion } from 'framer-motion';
 export function RootedLivingSection() {
   const metrics = [
     { value: '36', label: 'FLOORS', desc: 'Monolithic shear wall engineering' },
-    { value: '6', label: 'TOWERS', desc: 'Aerodynamic separation & corner homes' },
-    { value: '11 FT', label: 'CEILING VOLUMES', desc: 'Expansive natural light & airflow' },
-    { value: '14', label: 'ACRES', desc: '80% open living landscape' },
-    { value: '1,00,000', label: 'SFT CLUBHOUSE', desc: 'Multi-level realm of society & wellness' },
+    { value: '06', label: 'TOWERS', desc: 'Aerodynamic separation & corner homes' },
+    { value: '14', label: 'ACRES', desc: '80% continuous open landscape' },
+    { value: '11 FT', label: 'VOLUMES', desc: 'Extended floor-to-ceiling heights' },
+    { value: '1,00,000', label: 'SFT CLUB', desc: 'Integrated clubhouse realm' },
+    { value: 'LVL 06', label: 'RESIDENCES', desc: 'Living begins above 5 stilt tiers' },
   ];
 
   return (
     <section
       id="rooted"
-      className="relative w-full py-28 sm:py-36 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8"
+      className="relative w-full py-16 sm:py-20 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8 scroll-mt-20 sm:scroll-mt-24"
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-12 relative z-10 space-y-20">
+      <div className="max-w-6xl mx-auto px-6 sm:px-12 relative z-10 space-y-12 sm:space-y-14">
         {/* Editorial Eyebrow & Hero Statement */}
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +28,7 @@ export function RootedLivingSection() {
             transition={{ duration: 0.8 }}
             className="text-[10px] font-mono uppercase tracking-[0.34em] text-[#8C7A65] font-medium"
           >
-            02 — THE ART OF ROOTED LIVING
+            01 — THE ARCHITECTURAL VISION
           </motion.div>
 
           <motion.blockquote
@@ -35,7 +36,7 @@ export function RootedLivingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.18] tracking-tight"
+            className="font-serif text-2xl sm:text-4xl lg:text-5xl font-light text-[#141414] leading-[1.22] tracking-tight"
           >
             “An architectural sanctuary where thirty-six floors of vertical elegance remain deeply anchored to the earth below.”
           </motion.blockquote>
@@ -47,31 +48,29 @@ export function RootedLivingSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-sans text-xs sm:text-sm text-[#4A544F] font-light max-w-2xl mx-auto leading-relaxed"
           >
-            VANAE is conceived as an elevated ecosystem in Kollur. Six soaring towers sculpted to rise with quiet restraint, offering unobstructed 270° horizons while nurturing rich botanical life at every level.
+            Conceived as an elevated ecosystem in Kollur, ORR Exit 2. Six soaring towers sculpted with quiet restraint, offering unobstructed 270° horizons while nurturing rich botanical life across every level.
           </motion.p>
         </div>
 
         {/* Architectural Metrics Ledger Strip */}
-        <div className="pt-8 border-t border-[#141414]/8">
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+        <div className="pt-6 border-t border-[#141414]/8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-4">
             {metrics.map((m, idx) => (
               <motion.div
                 key={m.label}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className={`space-y-1.5 text-left border-l-0 lg:border-l border-[#141414]/10 lg:pl-6 first:pl-0 first:border-l-0 ${
-                  idx === 4 ? 'col-span-2 lg:col-span-1' : ''
-                }`}
+                transition={{ duration: 0.7, delay: idx * 0.08 }}
+                className="space-y-1 text-left sm:text-center border-l-0 lg:border-l border-[#141414]/10 lg:first:border-l-0 lg:px-3 first:pl-0"
               >
-                <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#141414] tracking-tight">
+                <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-[#141414] tracking-tight">
                   {m.value}
                 </div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-[#8C7A65] font-medium">
+                <div className="text-[9.5px] font-mono uppercase tracking-[0.2em] text-[#8C7A65] font-medium">
                   {m.label}
                 </div>
-                <p className="text-[11px] font-sans text-[#4A544F] font-light leading-snug hidden sm:block">
+                <p className="text-[10.5px] font-sans text-[#4A544F] font-light leading-tight hidden md:block pt-0.5">
                   {m.desc}
                 </p>
               </motion.div>

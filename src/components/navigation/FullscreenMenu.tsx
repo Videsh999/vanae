@@ -22,23 +22,14 @@ export function FullscreenMenu({
 
   const navigationGroups = [
     {
-      category: 'EXPLORE',
-      items: [
-        { label: 'Architecture', sectionId: 'architecture', image: '/assets/architecture-skyline.jpg' },
-        { label: 'Residences', sectionId: 'residences', image: '/assets/living-elevation.jpg' },
-        { label: 'Biophilic Terraces', sectionId: 'terraces', image: '/assets/living-terraces-pure.jpg' },
-        { label: 'Living Landscape', sectionId: 'lifestyle', image: '/assets/amenities/botanical-garden.jpg' },
-        { label: 'Amenities & Club', sectionId: 'amenities', image: '/assets/clubhouse-pure.jpg' },
-        { label: 'Master Plan', sectionId: 'masterplan', image: '/assets/masterplan-full.jpg' },
-        { label: 'Location & Transit', sectionId: 'location', image: '/assets/location-map.jpg' },
-      ],
-    },
-    {
-      category: 'ABOUT',
+      category: 'CHAPTERS',
       items: [
         { label: 'The Art of Rooted Living', sectionId: 'rooted', image: '/assets/hero-cloud-towers.jpg' },
-        { label: 'Engineering Specifications', sectionId: 'specifications', image: '/assets/facade-vertical.jpg' },
-        { label: 'Curated Gallery', sectionId: 'gallery', image: '/assets/campus-aerial-pure.jpg' },
+        { label: 'Architecture & Stratification', sectionId: 'architecture', image: '/assets/facade-vertical.jpg' },
+        { label: 'Residence Blueprints', sectionId: 'residences', image: '/assets/living-elevation.jpg' },
+        { label: 'Biophilic Terraces & 1L Club', sectionId: 'lifestyle', image: '/assets/living-terraces-pure.jpg' },
+        { label: 'Master Site Plan & Location', sectionId: 'location', image: '/assets/masterplan-full.jpg' },
+        { label: 'Consultation & Specifications', sectionId: 'enquiry', image: '/assets/campus-aerial-pure.jpg' },
       ],
     },
   ];

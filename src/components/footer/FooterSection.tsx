@@ -10,19 +10,23 @@ export function FooterSection() {
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const navHeight = 80;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
   };
 
   return (
-    <footer className="relative w-full bg-[#FAF9F6] text-[#141414] border-t border-[#141414]/8 overflow-hidden py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 space-y-16">
+    <footer className="relative w-full bg-[#FAF9F6] text-[#141414] border-t border-[#141414]/8 overflow-hidden py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 space-y-12 sm:space-y-16">
         {/* Top Tier: Brand & Back to Top */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 pb-12 border-b border-[#141414]/8">
-          <div className="space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 pb-8 border-b border-[#141414]/8">
+          <div className="space-y-2">
             <span className="font-serif text-3xl sm:text-4xl tracking-[0.25em] uppercase font-light text-[#141414]">
               VANAE
             </span>
-            <p className="font-serif text-2xl font-light italic text-[#383838]">
+            <p className="font-serif text-xl sm:text-2xl font-light italic text-[#383838]">
               The Art of Rooted Living.
             </p>
             <div className="text-xs font-mono uppercase tracking-widest text-[#8A7D6B]">
@@ -32,7 +36,7 @@ export function FooterSection() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-widest text-[#141414]/70 hover:text-[#141414] transition-colors focus:outline-hidden"
+            className="flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-widest text-[#141414]/70 hover:text-[#141414] transition-colors focus:outline-hidden cursor-pointer"
           >
             <span>Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5" />
@@ -40,7 +44,7 @@ export function FooterSection() {
         </div>
 
         {/* Middle Tier: Navigation Index, Locations & Statutory Clearances */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-xs font-sans font-light">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-xs font-sans font-light">
           {/* Navigation Links */}
           <div className="space-y-3">
             <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A7D6B]">
@@ -49,21 +53,17 @@ export function FooterSection() {
             <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-[#141414]/80">
               {[
                 { label: 'Overview', id: 'overview' },
-                { label: 'The Art of Rooted Living', id: 'rooted' },
+                { label: 'Vision', id: 'rooted' },
                 { label: 'Architecture', id: 'architecture' },
                 { label: 'Residences', id: 'residences' },
-                { label: 'The Experience', id: 'experience' },
-                { label: 'Amenities', id: 'amenities' },
-                { label: 'Master Plan', id: 'masterplan' },
-                { label: 'Location', id: 'location' },
-                { label: 'Specifications', id: 'specifications' },
-                { label: 'Gallery', id: 'gallery' },
-                { label: 'Private Viewing', id: 'private-viewing' },
+                { label: 'Club & Terraces', id: 'lifestyle' },
+                { label: 'Site & Location', id: 'location' },
+                { label: 'Consultation', id: 'enquiry' },
               ].map((item) => (
                 <div key={item.label}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="hover:text-[#141414] transition-colors text-left"
+                    className="hover:text-[#141414] transition-colors text-left cursor-pointer"
                   >
                     {item.label}
                   </button>

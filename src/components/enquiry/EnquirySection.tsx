@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
-import { VANAE_DATA } from '@/data/vanae-data';
 
 interface EnquirySectionProps {
   onOpenEnquire?: () => void;
@@ -30,43 +29,51 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
     }, 600);
   };
 
+  const specsSummary = [
+    { label: 'STRUCTURAL RIGIDITY', val: 'IS 456 Monolithic Shear Wall (Seismic Zone II)' },
+    { label: 'VERTICAL CLEARANCE', val: '11\'-0" Clear Floor-to-Ceiling Living Volumes' },
+    { label: 'ACOUSTIC GLAZING', val: 'Heavy-Gauge UPVC Profile with Toughened Glass' },
+    { label: 'UTILITIES & BACKUP', val: '100% DG Acoustic Backup & On-Site Softening Plant' },
+    { label: 'PARKING ARCHITECTURE', val: '5 Tiers Open Ventilated Stilt Parking (EV-Ready)' },
+  ];
+
   return (
     <section
-      id="private-viewing"
-      className="relative w-full py-28 sm:py-36 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8"
+      id="enquiry"
+      className="relative w-full py-16 sm:py-20 bg-[#FAF9F6] text-[#141414] overflow-hidden border-t border-[#141414]/8 scroll-mt-20 sm:scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10 space-y-12">
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 pb-4 border-b border-[#141414]/8">
+        <div className="max-w-2xl space-y-2.5 pb-4 border-b border-[#141414]/8">
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8C7A65] font-medium">
-            12 — PRIVATE VIEWING & INVITATION
+            06 — PRIVATE CONSULTATION & CRAFT
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.12]">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.14]">
             Experience Vanae.
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">
-            We invite you to schedule a private walkthrough with our architectural relationship directors. Discover the residences, drafting blueprints, and site vistas.
+            We invite you to schedule a private walkthrough with our architectural relationship directors at the Kollur Experience Pavilion.
           </p>
         </div>
 
-        {/* Editorial Split Composition: Invitation Letter + Booking Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left: Architectural Letter of Invitation */}
-          <div className="lg:col-span-6 space-y-8">
-            <div className="space-y-4">
+        {/* Editorial Split Composition: Dossier & Booking Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left: Consultation Dossier & Specifications */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="space-y-3">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65]">
-                THE PRIVATE CONSULTATION
+                THE PRIVATE ENCOUNTER
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#141414] leading-snug">
+              <h3 className="font-serif text-2xl font-light text-[#141414] leading-snug">
                 A personal encounter with thirty-six floors of rooted living.
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">
-                Every viewing is conducted as an uninterrupted private session at the VANAE Experience Pavilion in Kollur. You will examine the 14-acre architectural scale masterplan, tour unit drafting configurations, and view the panoramic orientation of your preferred block.
+              <p className="font-sans text-xs text-[#4A544F] font-light leading-relaxed">
+                Every viewing is conducted as an uninterrupted private session at the VANAE Experience Pavilion in Kollur. You will tour the 14-acre master scale model, examine floorplan drafts, and explore unit orientations.
               </p>
             </div>
 
             {/* Direct Concierge Contact Matrix */}
-            <div className="space-y-4 pt-4 border-t border-[#141414]/8 text-xs">
+            <div className="space-y-3 pt-3 border-t border-[#141414]/8 text-xs">
               <div className="flex items-start gap-3 text-[#4A544F]">
                 <MapPin className="w-4 h-4 text-[#8C7A65] shrink-0 mt-0.5" />
                 <span>
@@ -92,21 +99,27 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
               </div>
             </div>
 
-            <div className="p-5 rounded-xs bg-[#FAF9F6] border border-[#141414]/8 space-y-1">
-              <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#8C7A65]">
-                CURATED ADVISORY
+            {/* Engineering Specifications Summary Ledger */}
+            <div className="p-5 rounded-xs bg-white border border-[#141414]/8 space-y-3 shadow-2xs">
+              <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#8C7A65] block font-medium">
+                ENGINEERING SPECIFICATIONS SUMMARY
               </span>
-              <p className="text-xs font-sans text-[#4A544F] font-light leading-relaxed">
-                Weekend walkthroughs by advance appointment only to ensure absolute discretion and undivided attention.
-              </p>
+              <div className="space-y-2 text-xs divide-y divide-[#141414]/6">
+                {specsSummary.map((s) => (
+                  <div key={s.label} className="pt-2 first:pt-0 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                    <span className="text-[10px] font-mono uppercase text-[#4A544F]">{s.label}</span>
+                    <span className="font-sans text-xs text-[#141414] font-normal">{s.val}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Right: Clean Inline Consultation Form */}
-          <div className="lg:col-span-6 bg-[#FAF9F6] p-8 sm:p-12 rounded-xs border border-[#141414]/10 shadow-xs">
+          <div className="lg:col-span-6 bg-white p-6 sm:p-10 rounded-xs border border-[#141414]/10 shadow-xs">
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
                       Full Name *
@@ -117,11 +130,11 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Vikramaditya Rao"
-                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                      className="w-full bg-[#FAF9F6] border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-2.5 text-xs text-[#141414] focus:outline-hidden transition-colors"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
                         Telephone *
@@ -132,7 +145,7 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                        className="w-full bg-[#FAF9F6] border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-2.5 text-xs text-[#141414] focus:outline-hidden transition-colors"
                       />
                     </div>
 
@@ -146,7 +159,7 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="vikram@domain.com"
-                        className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                        className="w-full bg-[#FAF9F6] border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-2.5 text-xs text-[#141414] focus:outline-hidden transition-colors"
                       />
                     </div>
                   </div>
@@ -158,24 +171,24 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                     <select
                       value={formData.configuration}
                       onChange={(e) => setFormData({ ...formData, configuration: e.target.value })}
-                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors cursor-pointer"
+                      className="w-full bg-[#FAF9F6] border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-2.5 text-xs text-[#141414] focus:outline-hidden transition-colors cursor-pointer"
                     >
                       <option>3 BHK Residences (1765 – 2555 Sft)</option>
                       <option>4 BHK Grand Sky Residences (4400 Sft)</option>
-                      <option>Multiple Tower Inquiries</option>
+                      <option>General Architectural Inquiry</option>
                     </select>
                   </div>
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
-                      Notes or Preferred Timing
+                      Preferred Day or Notes
                     </label>
                     <textarea
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Preferred day for site viewing or specific block orientation..."
-                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors resize-none"
+                      className="w-full bg-[#FAF9F6] border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-2.5 text-xs text-[#141414] focus:outline-hidden transition-colors resize-none"
                     />
                   </div>
 
@@ -192,9 +205,9 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-12 text-center space-y-4"
+                  className="py-10 text-center space-y-4"
                 >
-                  <CheckCircle2 className="w-12 h-12 text-[#8C7A65] mx-auto" />
+                  <CheckCircle2 className="w-10 h-10 text-[#8C7A65] mx-auto" />
                   <h4 className="font-serif text-2xl text-[#141414] font-light">
                     Consultation Requested
                   </h4>
@@ -212,7 +225,7 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                         message: '',
                       });
                     }}
-                    className="pt-4 text-xs font-mono text-[#8C7A65] underline hover:text-[#141414] cursor-pointer"
+                    className="pt-2 text-xs font-mono text-[#8C7A65] underline hover:text-[#141414] cursor-pointer"
                   >
                     Submit another request
                   </button>
