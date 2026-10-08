@@ -1,8 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 
 interface HeroSectionProps {
   onExplore: () => void;
@@ -12,96 +10,87 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
   return (
     <section
       id="overview"
-      className="relative w-full h-screen min-h-[720px] flex flex-col justify-between overflow-hidden bg-white text-[#141414]"
+      className="relative w-full h-screen min-h-[640px] sm:min-h-[700px] flex flex-col justify-between overflow-hidden bg-[#FAF9F6] text-[#141414]"
     >
-      {/* Daytime Architectural Image with Subtle Cinematic Camera Push (1.00 → 1.05) */}
+      {/* 
+        CINEMATIC ARCHITECTURAL CAMERA VIEWPORT:
+        - Bright daytime warm morning sunlight hitting towers
+        - Cleaned photographic render (zero brochure text, zero dark sky)
+        - Very slow cinematic camera push (1.00 → 1.048) with subtle drift
+        - Finish naturally with ease-out curve
+      */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#FAF9F6]">
-        <motion.div
-          initial={{ scale: 1.0, y: 0 }}
-          animate={{ scale: 1.05, y: '-1.2%' }}
-          transition={{
-            duration: 9,
-            ease: [0.25, 1, 0.5, 1],
-          }}
-          className="w-full h-full"
-        >
+        <div className="w-full h-full hero-cinematic-camera">
           <img
-            src="/assets/hero-cloud-towers.jpg"
-            alt="VANAE — Six Architectural Towers Rising in Daylight and Clouds"
-            className="w-full h-full object-cover object-center filter brightness-100 contrast-[1.02]"
+            src="/assets/hero-daytime-pure.jpg"
+            alt="VANAE — Architectural Landmark in Kollur, Hyderabad"
+            className="w-full h-full object-cover object-[23%_center] sm:object-[58%_center] lg:object-[68%_center] filter brightness-100 contrast-[1.02]"
+            priority-img="true"
           />
-        </motion.div>
+        </div>
 
-        {/* Very soft, ultra-subtle light vignette ONLY for text contrast — NO dark overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 bg-gradient-to-r from-white/50 via-white/10 to-transparent pointer-events-none" />
+        {/* 
+          NATURAL DAYLIGHT SCRIM:
+          - Ultra-soft, delicate daylight veil on left so typography floats effortlessly over sky
+          - ZERO dark overlays, ZERO black gradients, ZERO artificial shading
+        */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 lg:w-2/5 bg-gradient-to-r from-white/40 via-white/10 to-transparent pointer-events-none" />
       </div>
 
-      {/* Top Spacer for Fixed Header */}
-      <div className="pt-28 sm:pt-32" />
+      {/* 
+        COMPOSITION & RESTRAINED EDITORIAL TYPOGRAPHY:
+        Order:
+        1. VANAE
+        2. The Art of Rooted Living
+        3. KOLLUR · ORR EXIT 2 · HYDERABAD
 
-      {/* Hero Typography — Quiet, Architectural, Restrained */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-end pb-14 sm:pb-20">
-        <div className="max-w-2xl space-y-5">
-          {/* Location Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[10.5px] sm:text-[11.5px] uppercase tracking-[0.32em] font-mono text-[#8A7D6B]"
-          >
-            KOLLUR · ORR EXIT 2 · HYDERABAD
-          </motion.div>
+        Positioned strictly in the golden-ratio morning sky on the left.
+        Building remains the primary visual, completely unobstructed.
+      */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between pt-24 sm:pt-32 pb-8 px-6 sm:px-10 md:px-12 lg:px-16 xl:px-24">
+        {/* Spacer to push title block toward optical vertical center */}
+        <div className="flex-1" />
 
-          {/* Headline & Philosophy */}
-          <div className="space-y-2">
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-6xl sm:text-7xl lg:text-8xl tracking-[0.16em] uppercase font-light text-[#141414] leading-none"
-            >
-              VANAE
-            </motion.h1>
+        {/* Restrained Editorial Typography Block */}
+        <div className="max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-lg space-y-3 sm:space-y-4 my-auto">
+          {/* Primary Architectural Brand Mark */}
+          <h1 className="hero-reveal-title font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[0.2em] sm:tracking-[0.24em] text-[#141414] uppercase leading-none">
+            VANAE
+          </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#383838] font-light tracking-wide italic"
-            >
-              The Art of Rooted Living
-            </motion.p>
+          {/* Philosophical Subtitle */}
+          <p className="hero-reveal-sub font-serif italic text-base sm:text-lg md:text-xl lg:text-2xl text-[#2C2824] font-light tracking-wide leading-snug">
+            The Art of Rooted Living
+          </p>
+
+          {/* Location & Descriptor */}
+          <div className="hero-reveal-location pt-1">
+            <span className="sm:hidden text-[8px] font-mono uppercase tracking-[0.18em] text-[#8C7A65] font-medium leading-relaxed block">
+              KOLLUR · ORR EXIT 2 <br />HYDERABAD
+            </span>
+            <span className="hidden sm:block text-[9.5px] md:text-[10px] lg:text-[11px] font-mono uppercase tracking-[0.3em] text-[#8C7A65] font-medium">
+              KOLLUR · ORR EXIT 2 · HYDERABAD
+            </span>
           </div>
+        </div>
 
-          {/* Understated Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans text-xs sm:text-sm text-[#4A544F] font-light max-w-lg leading-relaxed pt-1"
+        {/* Spacer below typography */}
+        <div className="flex-1" />
+
+        {/* Understated Editorial Capsule Scroll / Transition Cue */}
+        <div className="hero-reveal-explore w-full flex justify-center pb-2">
+          <button
+            onClick={onExplore}
+            className="group flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-[#141414]/10 shadow-xs text-[#141414] transition-all duration-300 hover:shadow-md cursor-pointer"
+            aria-label="Explore Vanae — Scroll to Architecture & Philosophy"
           >
-            A high-rise residential sanctuary of 36 floors across 6 towers, where modern engineering rises from deep botanical roots.
-          </motion.p>
+            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.26em] text-[#141414] font-medium">
+              EXPLORE
+            </span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#8C7A65] group-hover:scale-125 transition-transform" />
+          </button>
         </div>
       </div>
-
-      {/* Understated Explore Cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="relative z-10 w-full pb-6 flex justify-center"
-      >
-        <button
-          onClick={onExplore}
-          className="group flex flex-col items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.28em] text-[#141414]/60 hover:text-[#141414] transition-colors focus:outline-hidden"
-          aria-label="Explore Vanae"
-        >
-          <span>Explore</span>
-          <ArrowDown className="w-3.5 h-3.5 text-[#8A7D6B] group-hover:translate-y-1 transition-transform duration-300" />
-        </button>
-      </motion.div>
     </section>
   );
 }

@@ -42,7 +42,7 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
           isScrolled
             ? 'py-4 bg-white/95 backdrop-blur-md border-b border-[#141414]/6 shadow-xs'
-            : 'py-6 bg-white/80 backdrop-blur-xs border-b border-black/3'
+            : 'py-6 bg-gradient-to-b from-white/70 via-white/20 to-transparent'
         } text-[#141414]`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">

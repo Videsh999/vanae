@@ -110,6 +110,50 @@
   background: rgba(20, 20, 20, 0.3);
 }
 
+/* Cinematic Camera Approach (Scale 1.00 -> 1.05 with subtle drift, finish naturally) */
+@keyframes cinematicCameraPush {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.048) translate3d(-0.6%, -0.4%, 0);
+  }
+}
+
+.hero-cinematic-camera {
+  transform-origin: 65% 45%;
+  animation: cinematicCameraPush 16s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+  will-change: transform;
+}
+
+/* Restrained Editorial Typography Reveal */
+@keyframes editorialReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal-title {
+  animation: editorialReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-reveal-sub {
+  animation: editorialReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.hero-reveal-location {
+  animation: editorialReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.hero-reveal-explore {
+  animation: editorialReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   * {
