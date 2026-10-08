@@ -31,7 +31,8 @@ export function Navbar({ onOpenEnquire }: NavbarProps) {
   const navLinks = [
     { label: 'Architecture', target: 'architecture' },
     { label: 'Residences', target: 'residences' },
-    { label: 'Experience', target: 'experience' },
+    { label: 'Terraces', target: 'terraces' },
+    { label: 'Lifestyle', target: 'lifestyle' },
     { label: 'Amenities', target: 'amenities' },
     { label: 'Location', target: 'location' },
   ];

@@ -7,84 +7,84 @@ import { Plus, Minus } from 'lucide-react';
 export function SpecificationsSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const categories = [
+  const specifications = [
     {
-      title: 'STRUCTURE',
-      details: 'R.C.C. Framed Structure & Monolithic Shear Wall construction engineered to withstand wind and seismic loads as per IS codes.',
+      num: '01',
+      title: 'Monolithic Shear Wall Structure',
+      details: 'Engineered as a continuous R.C.C. monolithic shear wall framework compliant with IS 456, IS 1893 (Seismic Zone II), and IS 875 (Wind Loads). Provides high structural rigidity and crack resistance.',
     },
     {
-      title: 'FINISHES',
-      details: 'Internal smooth gypsum plaster finish with premium acrylic emulsion paint. External weatherproof texture finish with high-grade exterior emulsion.',
+      num: '02',
+      title: '11-Foot Ceiling Volumes & Finishes',
+      details: 'All residences feature 11-foot clear floor-to-ceiling heights. Internal walls finished with smooth gypsum plaster and low-VOC acrylic emulsion. Large-format premium vitrified floor tiles throughout living zones.',
     },
     {
-      title: 'FLOORING',
-      details: 'Large format premium vitrified tile flooring in living, dining, and bedrooms; laminated wooden flooring in master suite; non-slip vitrified tiles in utility and balconies.',
+      num: '03',
+      title: 'Acoustic Windows & Teak Veneers',
+      details: 'Factory-cured teak-veneered main door with digital smart biometric locks. Heavy-gauge UPVC profile window systems with tinted toughened acoustic glass and integrated mosquito mesh.',
     },
     {
-      title: 'DOORS & WINDOWS',
-      details: 'Factory-made teak-veneered main door with melamine polish. UPVC profile window sections with tinted toughened glass and mosquito mesh provision.',
+      num: '04',
+      title: 'High-Speed Elevators & Grand Lobbies',
+      details: 'Multiple high-speed passenger elevators and dedicated stretcher service lifts per tower core with marble jamb framing. Double-height air-conditioned residential entry lobbies with digital access control.',
     },
     {
-      title: 'KITCHENS & BATHROOMS',
-      details: 'Provision for modular kitchen with water purifier point. Bathrooms fitted with premium sanitaryware (Kohler / Grohe or equivalent), concealed flush tanks, and thermostatic diverters.',
+      num: '05',
+      title: 'Sanitaryware & Water Softening',
+      details: 'Concealed flush cisterns with premium European fixtures (Kohler / Grohe or equivalent). Centralized on-site Water Softening Plant (WSP) delivering treated potable water to all kitchens and baths.',
     },
     {
-      title: 'ELECTRICAL',
-      details: 'Concealed copper wiring with MCB distribution boards and modular switches. 3-phase supply with individual dual-source smart meters. AC copper piping provision throughout.',
+      num: '06',
+      title: '100% DG Acoustic Power Backup',
+      details: 'Full 100% DG backup for both common utilities and individual residences with automatic transfer switches and dual-source digital prepaid smart metering.',
     },
     {
-      title: 'LIFTS & POWER BACKUP',
-      details: 'High-speed passenger elevators and dedicated service stretcher elevators per tower with granite/marble jambs. 100% DG set power backup with acoustic enclosures.',
+      num: '07',
+      title: 'Eco-Hydrology & Sewage Treatment',
+      details: 'State-of-the-art Sewage Treatment Plant (STP) with treated water utilized for landscape drip-irrigation. Perimeter rainwater harvesting recharge shafts restoring the local aquifer.',
     },
     {
-      title: 'WATER & SUSTAINABILITY',
-      details: 'Treated domestic water supplied through central Water Softening Plant (WSP). Dedicated Sewage Treatment Plant (STP) for landscape irrigation and rainwater harvesting pits.',
-    },
-    {
-      title: 'SECURITY & FIRE SAFETY',
-      details: 'Round-the-clock CCTV surveillance at main security gate and tower lobbies; solar fencing along perimeter; fire hydrant and sprinkler system on all residential and stilt levels as per NBC.',
-    },
-    {
-      title: 'PARKING',
-      details: 'Five levels of naturally ventilated above-ground open stilt parking, EV charging ready infrastructure, and wide circular entry/exit ramps.',
+      num: '08',
+      title: '5 Tiers of Open Stilt Parking & EV Ready',
+      details: 'Five levels of naturally ventilated above-ground stilt parking, wide circular vehicular ramps, automated boom barriers, and dedicated EV charging station infrastructure.',
     },
   ];
 
   return (
     <section
       id="specifications"
-      className="relative w-full py-32 sm:py-44 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/6"
+      className="relative w-full py-28 sm:py-36 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8"
     >
-      <div className="max-w-4xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
+      <div className="max-w-5xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
         {/* Section Header */}
-        <div className="space-y-3 pb-6 border-b border-[#141414]/8">
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8A7D6B]">
-            09 — TECHNICAL BLUEPRINT
+        <div className="space-y-3 pb-4 border-b border-[#141414]/8">
+          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8C7A65] font-medium">
+            10 — TECHNICAL BLUEPRINT & CRAFT
           </span>
-          <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-[#141414] leading-[1.1]">
-            Specifications.
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.12]">
+            Engineering specifications.
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed max-w-xl">
-            Built strictly to Indian Standard (IS) and National Building Code (NBC) norms with monolithic R.C.C. shear wall discipline.
+            Built to National Building Code (NBC) and Bureau of Indian Standards (BIS) parameters with unwavering structural rigor.
           </p>
         </div>
 
-        {/* Elegant Minimal Accordion on Pure White Canvas with Thin Borders */}
+        {/* Technical Specification Accordion */}
         <div className="divide-y divide-[#141414]/8">
-          {categories.map((cat, idx) => {
+          {specifications.map((spec, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={cat.title} className="py-6">
+              <div key={spec.num} className="py-6">
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left focus:outline-hidden group"
+                  className="w-full flex items-center justify-between text-left focus:outline-hidden group cursor-pointer"
                 >
                   <div className="flex items-center gap-6 sm:gap-8">
-                    <span className="text-xs font-mono text-[#8A7D6B] tracking-widest">
-                      {(idx + 1).toString().padStart(2, '0')}
+                    <span className="text-xs font-mono text-[#8C7A65] tracking-widest min-w-[24px]">
+                      {spec.num}
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl font-light text-[#141414] group-hover:text-[#8A7D6B] transition-colors">
-                      {cat.title}
+                    <h3 className="font-serif text-lg sm:text-2xl font-light text-[#141414] group-hover:text-[#8C7A65] transition-colors">
+                      {spec.title}
                     </h3>
                   </div>
 
@@ -99,11 +99,11 @@ export function SpecificationsSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-4 pl-12 sm:pl-16 font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">
-                        {cat.details}
+                      <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed pt-4 pl-12 sm:pl-14 max-w-3xl">
+                        {spec.details}
                       </p>
                     </motion.div>
                   )}

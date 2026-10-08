@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { VANAE_DATA } from '@/data/vanae-data';
 
 interface EnquirySectionProps {
@@ -27,53 +27,104 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    }, 600);
   };
 
   return (
     <section
       id="private-viewing"
-      className="relative w-full py-32 sm:py-44 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/6"
+      className="relative w-full py-28 sm:py-36 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
         {/* Section Header */}
-        <div className="max-w-2xl space-y-3 pb-6 border-b border-[#141414]/8">
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8A7D6B]">
-            11 — PRIVATE VIEWING
+        <div className="max-w-2xl space-y-3 pb-4 border-b border-[#141414]/8">
+          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8C7A65] font-medium">
+            12 — PRIVATE VIEWING & INVITATION
           </span>
-          <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-[#141414] leading-[1.1]">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.12]">
             Experience Vanae.
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">
-            Schedule a private walkthrough with our architectural relationship directors. Discover the residences, floor plans, and site vistas.
+            We invite you to schedule a private walkthrough with our architectural relationship directors. Discover the residences, drafting blueprints, and site vistas.
           </p>
         </div>
 
-        {/* Editorial Split Composition on Pure White Canvas */}
+        {/* Editorial Split Composition: Invitation Letter + Booking Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Elegant Inline Enquiry Form */}
-          <div className="lg:col-span-6 bg-[#FAF9F6] p-8 sm:p-12 rounded-xs border border-[#141414]/8 shadow-xs">
+          {/* Left: Architectural Letter of Invitation */}
+          <div className="lg:col-span-6 space-y-8">
+            <div className="space-y-4">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65]">
+                THE PRIVATE CONSULTATION
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#141414] leading-snug">
+                A personal encounter with thirty-six floors of rooted living.
+              </h3>
+              <p className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed">
+                Every viewing is conducted as an uninterrupted private session at the VANAE Experience Pavilion in Kollur. You will examine the 14-acre architectural scale masterplan, tour unit drafting configurations, and view the panoramic orientation of your preferred block.
+              </p>
+            </div>
+
+            {/* Direct Concierge Contact Matrix */}
+            <div className="space-y-4 pt-4 border-t border-[#141414]/8 text-xs">
+              <div className="flex items-start gap-3 text-[#4A544F]">
+                <MapPin className="w-4 h-4 text-[#8C7A65] shrink-0 mt-0.5" />
+                <span>
+                  <strong className="text-[#141414] font-medium block">Experience Pavilion & Site Address</strong>
+                  Kollur, Nehru Outer Ring Road Exit 2, Hyderabad, Telangana 502300
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-[#4A544F]">
+                <Phone className="w-4 h-4 text-[#8C7A65] shrink-0" />
+                <span>
+                  <strong className="text-[#141414] font-medium mr-2">Private Line:</strong>
+                  +91 91000 81234
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-[#4A544F]">
+                <Mail className="w-4 h-4 text-[#8C7A65] shrink-0" />
+                <span>
+                  <strong className="text-[#141414] font-medium mr-2">Direct Inquiries:</strong>
+                  concierge@vanae.luxury
+                </span>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xs bg-[#FAF9F6] border border-[#141414]/8 space-y-1">
+              <span className="text-[9.5px] font-mono uppercase tracking-widest text-[#8C7A65]">
+                CURATED ADVISORY
+              </span>
+              <p className="text-xs font-sans text-[#4A544F] font-light leading-relaxed">
+                Weekend walkthroughs by advance appointment only to ensure absolute discretion and undivided attention.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Clean Inline Consultation Form */}
+          <div className="lg:col-span-6 bg-[#FAF9F6] p-8 sm:p-12 rounded-xs border border-[#141414]/10 shadow-xs">
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1">
-                    <label className="text-[10.5px] font-mono uppercase tracking-widest text-[#8A7D6B] block">
-                      Name *
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
+                      Full Name *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your full name"
-                      className="w-full bg-white border border-[#141414]/10 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                      placeholder="e.g. Vikramaditya Rao"
+                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <label className="text-[10.5px] font-mono uppercase tracking-widest text-[#8A7D6B] block">
-                        Phone *
+                      <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
+                        Telephone *
                       </label>
                       <input
                         type="tel"
@@ -81,12 +132,12 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full bg-white border border-[#141414]/10 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                        className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-[10.5px] font-mono uppercase tracking-widest text-[#8A7D6B] block">
+                      <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
                         Email *
                       </label>
                       <input
@@ -94,103 +145,80 @@ export function EnquirySection({ onOpenEnquire }: EnquirySectionProps) {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="you@domain.com"
-                        className="w-full bg-white border border-[#141414]/10 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                        placeholder="vikram@domain.com"
+                        className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10.5px] font-mono uppercase tracking-widest text-[#8A7D6B] block">
-                      Configuration / Interest
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
+                      Configuration of Interest
                     </label>
                     <select
                       value={formData.configuration}
                       onChange={(e) => setFormData({ ...formData, configuration: e.target.value })}
-                      className="w-full bg-white border border-[#141414]/10 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors"
+                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors cursor-pointer"
                     >
-                      <option value="3 BHK Residences (1765 – 2555 Sft)">3 BHK Residences (1765 – 2555 Sft)</option>
-                      <option value="4 BHK Signature Grand (4400 Sft)">4 BHK Signature Grand (4400 Sft)</option>
-                      <option value="General Architectural Inquiry">General Architectural Inquiry</option>
+                      <option>3 BHK Residences (1765 – 2555 Sft)</option>
+                      <option>4 BHK Grand Sky Residences (4400 Sft)</option>
+                      <option>Multiple Tower Inquiries</option>
                     </select>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10.5px] font-mono uppercase tracking-widest text-[#8A7D6B] block">
-                      Message / Preferred Date (Optional)
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-[#8C7A65] block">
+                      Notes or Preferred Timing
                     </label>
                     <textarea
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Share any specific requirements or preferred timing..."
-                      className="w-full bg-white border border-[#141414]/10 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors resize-none"
+                      placeholder="Preferred day for site viewing or specific block orientation..."
+                      className="w-full bg-white border border-[#141414]/12 focus:border-[#141414] rounded-xs px-4 py-3 text-xs text-[#141414] focus:outline-hidden transition-colors resize-none"
                     />
                   </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 bg-[#141414] hover:bg-[#282828] text-white font-mono text-xs uppercase tracking-[0.22em] transition-all rounded-xs flex items-center justify-center gap-2 focus:outline-hidden"
-                    >
-                      <span>{isSubmitting ? 'Transmitting...' : 'Request a Private Viewing'}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  <p className="text-[10px] text-[#4A544F]/70 text-center font-mono tracking-wider pt-1">
-                    BY SUBMITTING, YOU AGREE TO RECEIVE A COURTESY CALL FROM OUR RELATIONSHIP TEAM.
-                  </p>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#141414] text-white hover:bg-[#8C7A65] transition-colors text-xs font-mono uppercase tracking-widest cursor-pointer shadow-xs disabled:opacity-50"
+                  >
+                    <span>{isSubmitting ? 'Confirming...' : 'Request Private Viewing'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </form>
               ) : (
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   className="py-12 text-center space-y-4"
                 >
-                  <div className="w-12 h-12 rounded-full border border-[#8A7D6B] flex items-center justify-center text-[#8A7D6B] mx-auto">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-serif text-3xl text-[#141414]">
+                  <CheckCircle2 className="w-12 h-12 text-[#8C7A65] mx-auto" />
+                  <h4 className="font-serif text-2xl text-[#141414] font-light">
                     Consultation Requested
                   </h4>
-                  <p className="font-sans text-xs text-[#4A544F] max-w-sm mx-auto leading-relaxed">
-                    Thank you, {formData.name}. Our relationship director will contact you promptly to schedule your private viewing.
+                  <p className="font-sans text-xs text-[#4A544F] font-light max-w-sm mx-auto leading-relaxed">
+                    Thank you. Our relationship director will contact you directly on {formData.phone} to coordinate your private visit to the VANAE Experience Pavilion.
                   </p>
                   <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="text-xs font-mono uppercase tracking-widest text-[#8A7D6B] hover:text-[#141414] pt-2 focus:outline-hidden"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        name: '',
+                        phone: '',
+                        email: '',
+                        configuration: '3 BHK Residences (1765 – 2555 Sft)',
+                        message: '',
+                      });
+                    }}
+                    className="pt-4 text-xs font-mono text-[#8C7A65] underline hover:text-[#141414] cursor-pointer"
                   >
-                    Submit another inquiry
+                    Submit another request
                   </button>
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
-
-          {/* Right Column: Architectural Photography & Credentials */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="relative aspect-16/10 overflow-hidden rounded-xs border border-[#141414]/8 bg-[#F6F5F2]">
-              <img
-                src="/assets/architecture-skyline.jpg"
-                alt="VANAE Daytime Architecture"
-                className="w-full h-full object-cover object-center filter contrast-100"
-              />
-            </div>
-
-            <div className="space-y-4 pt-2">
-              <div className="text-xs font-mono uppercase tracking-widest text-[#8A7D6B]">
-                EXPERIENCE SUITE & SITE GALLERY
-              </div>
-              <p className="font-serif text-xl sm:text-2xl text-[#141414] font-light leading-relaxed">
-                Kollur Exit 2, Nehru Outer Ring Road, Hyderabad – 502300
-              </p>
-              <div className="space-y-1 text-xs font-mono text-[#4A544F] tracking-wide">
-                <p>HMDA Approval No: 006436/LO/HMDA 1500/MED/2024TG</p>
-                <p>A Joint Venture of Nestmakers & Elegans Group</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

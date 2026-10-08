@@ -4,68 +4,78 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export function RootedLivingSection() {
+  const metrics = [
+    { value: '36', label: 'FLOORS', desc: 'Monolithic shear wall engineering' },
+    { value: '6', label: 'TOWERS', desc: 'Aerodynamic separation & corner homes' },
+    { value: '11 FT', label: 'CEILING VOLUMES', desc: 'Expansive natural light & airflow' },
+    { value: '14', label: 'ACRES', desc: '80% open living landscape' },
+    { value: '1,00,000', label: 'SFT CLUBHOUSE', desc: 'Multi-level realm of society & wellness' },
+  ];
+
   return (
     <section
       id="rooted"
-      className="relative w-full py-32 sm:py-44 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/6"
+      className="relative w-full py-28 sm:py-36 bg-white text-[#141414] overflow-hidden border-t border-[#141414]/8"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10 space-y-16">
-        {/* Editorial Heading Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <div className="lg:col-span-8 space-y-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8A7D6B]"
-            >
-              02 — THE ART OF ROOTED LIVING
-            </motion.div>
+      <div className="max-w-6xl mx-auto px-6 sm:px-12 relative z-10 space-y-20">
+        {/* Editorial Eyebrow & Hero Statement */}
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-[10px] font-mono uppercase tracking-[0.34em] text-[#8C7A65] font-medium"
+          >
+            02 — THE ART OF ROOTED LIVING
+          </motion.div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-[#141414] leading-[1.12]"
-            >
-              Rooted in nature. <br />
-              <span className="italic text-[#8A7D6B]">Elevated by architecture.</span>
-            </motion.h2>
-          </div>
+          <motion.blockquote
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#141414] leading-[1.18] tracking-tight"
+          >
+            “An architectural sanctuary where thirty-six floors of vertical elegance remain deeply anchored to the earth below.”
+          </motion.blockquote>
 
-          <div className="lg:col-span-4 pb-2">
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.25 }}
-              className="font-sans text-xs sm:text-sm text-[#4A544F] font-light leading-relaxed"
-            >
-              Vanae is an architectural sanctuary where thirty-six floors of vertical elegance remain deeply anchored to the earth below. A continuous rhythm of terraced gardens, natural light, and quiet privacy across 6 soaring towers.
-            </motion.p>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-sans text-xs sm:text-sm text-[#4A544F] font-light max-w-2xl mx-auto leading-relaxed"
+          >
+            VANAE is conceived as an elevated ecosystem in Kollur. Six soaring towers sculpted to rise with quiet restraint, offering unobstructed 270° horizons while nurturing rich botanical life at every level.
+          </motion.p>
         </div>
 
-        {/* Large Editorial Architectural & Nature Spread */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-16/9 sm:aspect-21/9 min-h-[420px] overflow-hidden rounded-xs border border-[#141414]/8 bg-[#F8F7F4]"
-        >
-          <img
-            src="/assets/living-elevation.jpg"
-            alt="Vanae Terraced Living and Architecture"
-            className="w-full h-full object-cover object-center filter contrast-100"
-          />
-
-          <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 px-4 py-2 bg-white/95 backdrop-blur-md rounded-xs border border-[#141414]/6 text-[10.5px] font-mono uppercase tracking-widest text-[#141414]">
-            BIOPHILIC TERRACES · 11-FOOT VOLUMES
+        {/* Architectural Metrics Ledger Strip */}
+        <div className="pt-8 border-t border-[#141414]/8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 sm:gap-6">
+            {metrics.map((m, idx) => (
+              <motion.div
+                key={m.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: idx * 0.1 }}
+                className="space-y-1.5 text-center sm:text-left border-l-0 sm:border-l border-[#141414]/10 sm:pl-6 first:pl-0 first:border-l-0"
+              >
+                <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#141414] tracking-tight">
+                  {m.value}
+                </div>
+                <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-[#8C7A65] font-medium">
+                  {m.label}
+                </div>
+                <p className="text-[11px] font-sans text-[#4A544F] font-light leading-snug hidden sm:block">
+                  {m.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

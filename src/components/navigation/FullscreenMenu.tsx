@@ -26,18 +26,19 @@ export function FullscreenMenu({
       items: [
         { label: 'Architecture', sectionId: 'architecture', image: '/assets/architecture-skyline.jpg' },
         { label: 'Residences', sectionId: 'residences', image: '/assets/living-elevation.jpg' },
-        { label: 'The Experience', sectionId: 'experience', image: '/assets/elevate-diagram.jpg' },
-        { label: 'Amenities', sectionId: 'amenities', image: '/assets/amenities/swimming-pool.jpg' },
+        { label: 'Biophilic Terraces', sectionId: 'terraces', image: '/assets/living-terraces-pure.jpg' },
+        { label: 'Living Landscape', sectionId: 'lifestyle', image: '/assets/amenities/botanical-garden.jpg' },
+        { label: 'Amenities & Club', sectionId: 'amenities', image: '/assets/clubhouse-pure.jpg' },
         { label: 'Master Plan', sectionId: 'masterplan', image: '/assets/masterplan-full.jpg' },
-        { label: 'Location', sectionId: 'location', image: '/assets/location-map.jpg' },
+        { label: 'Location & Transit', sectionId: 'location', image: '/assets/location-map.jpg' },
       ],
     },
     {
       category: 'ABOUT',
       items: [
-        { label: 'The Art of Rooted Living', sectionId: 'rooted', image: '/assets/living-elevation.jpg' },
-        { label: 'Specifications', sectionId: 'specifications', image: '/assets/facade-vertical.jpg' },
-        { label: 'Gallery', sectionId: 'gallery', image: '/assets/hero-cloud-towers.jpg' },
+        { label: 'The Art of Rooted Living', sectionId: 'rooted', image: '/assets/hero-cloud-towers.jpg' },
+        { label: 'Engineering Specifications', sectionId: 'specifications', image: '/assets/facade-vertical.jpg' },
+        { label: 'Curated Gallery', sectionId: 'gallery', image: '/assets/campus-aerial-pure.jpg' },
       ],
     },
   ];

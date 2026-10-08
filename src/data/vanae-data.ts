@@ -74,7 +74,17 @@ export const VANAE_DATA = {
     addresses: {
       site: 'VANAE: Kollur Exit 2, Nehru Outer Ring Road, Nagulapalli, Edulnagulapally, Hyderabad, Telangana – 502300',
       corporate: '3rd Floor, Ravi Shankar Arcade, Plot No. 19 & 20, Gachibowli, Hyderabad, Telangana – 500032'
+    },
+    contact: {
+      phone: '+91 91000 81234',
+      email: 'concierge@vanae.luxury',
+      siteOffice: 'Kollur, ORR Exit 2, Hyderabad'
     }
+  },
+  contact: {
+    phone: '+91 91000 81234',
+    email: 'concierge@vanae.luxury',
+    address: 'Kollur, ORR Exit 2, Hyderabad'
   },
 
   stats: [

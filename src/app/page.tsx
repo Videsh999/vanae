@@ -7,7 +7,8 @@ import { HeroSection } from '@/components/hero/HeroSection';
 import { RootedLivingSection } from '@/components/rooted/RootedLivingSection';
 import { ArchitectureSection } from '@/components/architecture/ArchitectureSection';
 import { ResidencesSection } from '@/components/residences/ResidencesSection';
-import { ElevateSection } from '@/components/architecture/ElevateSection';
+import { LivingTerracesSection } from '@/components/living/LivingTerracesSection';
+import { LifestyleSection } from '@/components/lifestyle/LifestyleSection';
 import { AmenitiesSection } from '@/components/amenities/AmenitiesSection';
 import { MasterPlanSection } from '@/components/masterplan/MasterPlanSection';
 import { LocationSection } from '@/components/location/LocationSection';
@@ -35,46 +36,74 @@ export default function Home() {
 
   return (
     <SmoothScroll>
-      {/* Editorial Header */}
+      {/* Editorial Fixed Header */}
       <Navbar onOpenEnquire={() => handleOpenEnquire()} />
 
-      {/* 12 Deliberate Cinematic Sections on Pure White / Light Canvas */}
+      {/* 
+        CURATED EDITORIAL RHYTHM & VISUAL PROGRESSION:
+        FULL IMAGE (Hero)
+        ↓
+        SHORT EDITORIAL STATEMENT (Philosophy & Metrics)
+        ↓
+        ARCHITECTURAL IMAGE (Form, Monolithic Discipline)
+        ↓
+        DETAIL / INFORMATION (Stratification & Residence Blueprints)
+        ↓
+        LARGE IMAGE (Biophilic Sky Terraces)
+        ↓
+        LIFESTYLE (Living Landscape, Water Courts, Sky Wellness)
+        ↓
+        AMENITIES (1,00,000 Sft Clubhouse & Categorized Society)
+        ↓
+        MASTER PLAN (14-Acre Site Drawing & Towers)
+        ↓
+        LOCATION (Kollur · ORR Exit 2 · Drive Times)
+        ↓
+        SPECIFICATIONS (Technical Blueprint & Engineering Schedule)
+        ↓
+        GALLERY (Curated Photographic Anthology)
+        ↓
+        ENQUIRY (Private Viewing Invitation)
+      */}
       <main className="relative flex flex-col w-full bg-white text-[#141414]">
-        {/* 01 — HERO: Daytime Architectural Shot, Subtle Camera Push (1.00 → 1.05) */}
+        {/* 01 — FULL IMAGE: Daytime Architectural Cinema Hero */}
         <HeroSection onExplore={() => handleScrollToSection('rooted')} />
 
-        {/* 02 — THE ART OF ROOTED LIVING: Large Editorial Composition */}
+        {/* 02 — SHORT EDITORIAL STATEMENT: The Philosophy & Architectural Ledger */}
         <RootedLivingSection />
 
-        {/* 03 — ARCHITECTURE: Designed to rise. Designed to belong. */}
+        {/* 03 — ARCHITECTURAL IMAGE: Vertical Discipline & Facade Ribs */}
         <ArchitectureSection />
 
-        {/* 04 — RESIDENCES: Space to Live Beautifully & Drafting Floor Plans */}
+        {/* 04 — DETAIL / INFORMATION: Stratification & Residence Blueprints */}
         <ResidencesSection onOpenEnquire={(plan) => handleOpenEnquire(plan)} />
 
-        {/* 05 — THE EXPERIENCE: The Way We Elevate (Building Cross-Section) */}
-        <ElevateSection />
+        {/* 05 — LARGE IMAGE: Biophilic Sky Terraces & 11-Foot Volumes */}
+        <LivingTerracesSection />
 
-        {/* 06 — AMENITIES: 6 Experiential Chapters & 1,00,000 Sft Clubhouse */}
+        {/* 06 — LIFESTYLE: Botanical Canopy, Water Courts, Sky Wellness */}
+        <LifestyleSection />
+
+        {/* 07 — AMENITIES: 1,00,000 Sft Clubhouse & Society */}
         <AmenitiesSection />
 
-        {/* 07 — MASTER PLAN: Architectural Site Drawing Given Ample Space */}
+        {/* 08 — MASTER PLAN: 14-Acre Site Drawing & Tower Exploration */}
         <MasterPlanSection onSelectTower={() => handleScrollToSection('residences')} />
 
-        {/* 08 — LOCATION: Kollur · ORR Exit 2 · Hyderabad */}
+        {/* 09 — LOCATION: Strategic Cartography & Transit Times */}
         <LocationSection />
 
-        {/* 09 — SPECIFICATIONS: Minimal Accordion on Pure White */}
+        {/* 10 — SPECIFICATIONS: Structural Craft & Technical Blueprint */}
         <SpecificationsSection />
 
-        {/* 10 — GALLERY: Architectural Photography Exhibition & Lightbox */}
+        {/* 11 — GALLERY: Curated Photographic Anthology */}
         <GallerySection />
 
-        {/* 11 — PRIVATE VIEWING: Daytime Editorial Consultation Form */}
+        {/* 12 — ENQUIRY: Private Viewing Consultation */}
         <EnquirySection onOpenEnquire={() => handleOpenEnquire()} />
       </main>
 
-      {/* 12 — FOOTER: Architectural Colophon & Disclosures */}
+      {/* 13 — FOOTER: Architectural Colophon, TS RERA, & Legal Notices */}
       <FooterSection />
 
       {/* Private Consultation Modal for Quick Enquire Triggers */}

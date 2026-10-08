@@ -20,12 +20,13 @@ export function HeroSection({ onExplore }: HeroSectionProps) {
         - Finish naturally with ease-out curve
       */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#FAF9F6]">
-        <div className="w-full h-full hero-cinematic-camera">
+        <div className="relative w-full h-full hero-cinematic-camera">
           <img
             src="/assets/hero-daytime-pure.jpg"
             alt="VANAE — Architectural Landmark in Kollur, Hyderabad"
-            className="w-full h-full object-cover object-[23%_center] sm:object-[58%_center] lg:object-[68%_center] filter brightness-100 contrast-[1.02]"
-            priority-img="true"
+            className="absolute inset-0 w-full h-full object-cover object-[25%_center] sm:object-[58%_center] lg:object-[68%_center] filter contrast-[1.02]"
+            loading="eager"
+            decoding="sync"
           />
         </div>
 
