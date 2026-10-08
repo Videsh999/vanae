@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --ivory: #faf8f5;
+    --offwhite: #f7f5f0;
+    --stone: #ebe7e0;
+    --stone-light: #f2eee8;
+    --charcoal: #141c18;
+    --charcoal-muted: #4a544f;
+    --forest: #061811;
+    --forest-subtle: #0d2219;
+    --earth: #8a7d6b;
+    --champagne: #c5a880;
+    --border-light: rgba(20, 28, 24, 0.08);
+    --border-dark: rgba(250, 248, 245, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--ivory);
+    color: var(--charcoal);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  ::selection {
+    background: #c5a880;
+    color: #061811;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Typography styles */
+.font-serif {
+  font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Subtle architectural grain */
+.bg-noise {
+  background-image: radial-gradient(rgba(20, 28, 24, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-noise-dark {
+  background-image: radial-gradient(rgba(250, 248, 245, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Understated editorial action link/button */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.btn-editorial:hover {
+  opacity: 0.7;
+  transform: translateX(2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f5f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 28, 24, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 28, 24, 0.4);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
